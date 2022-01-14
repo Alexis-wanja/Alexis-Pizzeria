@@ -2,3 +2,11 @@ body {
     background-size: cover;
     background-image: url(../IMAGES/pizza2.jpg);
 }
+
+.jumbotron{
+    align-items: center;
+    background-color: rgb(247, 79, 18);
+    text-align: center;
+    font-style: oblique;
+    color: ivory;
+}
