@@ -3,14 +3,11 @@ body {
     background-image: url(../IMAGES/pizza2.jpg);
 }
 
-.intro{
-    background-image: url(../IMAGES/banner.jpg);
-    background-position: center;
-    text-align: center;
-    color: rgb(15, 15, 15);
-    font-style: oblique;
+.navbar{
+    background-image: url(../IMAGES/SQIECD.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    font-style: oblique;
 }
 
 .menu{
