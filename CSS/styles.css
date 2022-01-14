@@ -3,10 +3,26 @@ body {
     background-image: url(../IMAGES/pizza2.jpg);
 }
 
-.jumbotron{
-    align-items: center;
-    background-color: rgb(247, 79, 18);
+.intro{
+    background-image: url(../IMAGES/banner.jpg);
+    background-position: center;
     text-align: center;
+    color: rgb(15, 15, 15);
     font-style: oblique;
-    color: ivory;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
+
+.jumbotron{
+    background-color: rgb(255, 105, 51);
+    font-style: oblique;
+    color: rgb(247, 244, 72);
+    height: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
