@@ -11,17 +11,19 @@ body {
 }
 
 .container{
-    color: rgb(253, 241, 69);
     text-align: center;
     font-style: oblique;
 }
 
 .jumbotron{
+    color: yellow;
     background-image: url(../IMAGES/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: fit-content;
 }
+
+
 
 
 
