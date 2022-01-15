@@ -36,7 +36,7 @@
               <div class="form-group row align-items-center">
 
                 <!--size-->
-              <label class="col-sm-3 col-form-label" for="Size">Size</label>
+              <label class="col-sm-3 col-form-label" for="Size"><strong>Size</strong></label>
               <select id="pizzaSize" class="form-control col-sm-9">
                 <option value="300">Small @300/=</option>
                 <option value="500">Medium @500/=</option>
@@ -45,7 +45,7 @@
               <br><br>
 
               <!--crust-->
-              <label class="col-sm-3 col-form-label" for="pizzaCrust">Crust</label>
+              <label class="col-sm-3 col-form-label" for="pizzaCrust"><strong>Crust</strong></label>
                 <select id="pizzaCrust" class="form-control col-sm-9">
                     <option value="300">Crispy crust @100/=</option>
                     <option value="500">Gluten-free @500/=</option>
@@ -57,7 +57,7 @@
 
               <!--toppings-->
               <form id="Toppings" class="form-group" form="pizzaToppings">
-                <legend class="col-form-label col-sm-3">Toppings</legend>
+                <legend class="col-form-label col-sm-3"><strong>Toppings</strong></legend>
                 <div class="Toppings">
                   <div class="form-check">
                     <input class="form-check-input" id="anchovies" type="checkbox" value="80" />
@@ -98,15 +98,25 @@
                   </div>
                 </div>
               </form>
-              </div>
-              </div>
-              </div>
             </div>
           </form>
-        </div>
+        </div><br>
+        <div id="pizzaCount" class="form-group">
+          <label class="col-sm-3" for="pizzaCount"><strong><h4>Number of Pizzas</h4></strong></label>
+          <input class="form-control col-sm-20" type="number" min="1">
+          <div class="form-group mr-n3"><br><br>
+            <button class="btn btn-outline-success form-control" type="submit">Order Now!</button>
+          </div>
+          <br><br>
+
+
       </div>
     </div>
+    <br><br>
 
+
+    </div>
+     
 
     
 

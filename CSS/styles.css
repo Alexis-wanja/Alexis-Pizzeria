@@ -1,6 +1,6 @@
 body {
     background-size: cover;
-    background-image: url(../IMAGES/pizza2.jpg);
+    background-image: url(../IMAGES/pizza\ wallpaper.jpg);
 }
 
 .navbar{
@@ -25,13 +25,17 @@ body {
 
 .card{
     align-items: center;
-    background-image: url(../IMAGES/pizza3.jpg);
+    background-color: rgb(87, 201, 253);
     background-size: cover;
 }
 
-.Toppings{
-    align-items: center;
+h4{
+    color: rgb(10, 10, 10);
+    font-style: oblique;
+    text-align: center;
 }
+
+
 
 
 
