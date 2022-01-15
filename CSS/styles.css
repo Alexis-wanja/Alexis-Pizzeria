@@ -4,10 +4,10 @@ body {
 }
 
 .navbar{
-    background-image: url(../IMAGES/pizza2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-style: oblique;
+    background-color: rgb(26, 22, 22);
 }
 
 .container{
@@ -23,7 +23,15 @@ body {
     height: fit-content;
 }
 
+.card{
+    align-items: center;
+    background-image: url(../IMAGES/pizza3.png);
+    background-size: cover;
+}
 
+.Toppings{
+    align-items: center;
+}
 
 
 
