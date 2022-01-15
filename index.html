@@ -105,6 +105,24 @@
           <label class="col-sm-3" for="pizzaCount"><strong><h4>Number of Pizzas</h4></strong></label>
           <input class="form-control col-sm-20" type="number" min="1">
           <div class="form-group mr-n3"><br><br>
+
+            <form id="delivery">
+              <p><strong>Would you want a delivery for Ksh 350?</strong></p>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" name="delivery" type="radio" id="Yes" value="YES" />
+                <label class="form-check-label" for="YES">
+                  YES
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" name="delivery" type="radio" id="no" value="NO" />
+                <label class="form-check-label" for="deliver">
+                  NO
+                </label>
+              </div><br>
+              <input class="form-control" id="deliveryLocation" type="text" placeholder="Location..." />
+            </form>
+            <br>
             <button class="btn btn-outline-success form-control" type="submit">Order Now!</button>
           </div>
           <br><br>
