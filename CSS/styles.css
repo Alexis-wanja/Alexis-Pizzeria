@@ -1,10 +1,10 @@
 body {
     background-size: cover;
-    background-image: url(../IMAGES/pizza1.jpg);
+    background-image: url(../IMAGES/pizza2.jpg);
 }
 
 .navbar{
-    background-image: url(../IMAGES/SQIECD.jpg);
+    background-image: url(../IMAGES/pizza2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-style: oblique;
@@ -16,6 +16,12 @@ body {
     font-style: oblique;
 }
 
+.jumbotron{
+    background-image: url(../IMAGES/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: fit-content;
+}
 
 
 
