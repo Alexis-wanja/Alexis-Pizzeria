@@ -9,7 +9,7 @@ Pizza Planet, as the name suggests, is a pizza restaurant which uses this websit
 
 ## Setup/Installation Requirements
 A live link is present in the about section of this repository or otherwise repository may be cloned and opened in a web browser.
-Code can be viewed from a text editor such as visual studio and/or atom.
+Code can be viewed from a text editor such as visual studio or atom.
 
 ## Technologies Used
 Languages used include CSS, HTML and Javascript wherelse the framework used is Bootstrap. J Query is also implemented.
