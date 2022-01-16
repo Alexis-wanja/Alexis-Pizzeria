@@ -19,27 +19,33 @@ $(document).ready(function() {
       } else if (this.size === "large-pizza") {
         this.pizzaPrice += 1000;
       }
-      if (this.crust === "thick-crust") {
-        this.pizzaPrice += 200;
-      } else if (this.crust === "cheese-filled-crust") {
-        this.pizzaPrice += 250;
-      } else if (this.crust === "crispy-crust") {
-        this.pizzaPrice += 100;
-      } else if (this.crust === "stuffed-crust") {
-        this.pizzaPrice += 150;
-      } else if (this.crust === "thin-crust") {
-        this.pizzaPrice += 150;
-      }
-      if (this.toppings === "chicken") {
+      if (this.crust === "crispy-crust") {
         this.pizzaPrice += 300;
-      } else if (this.toppings === "vegetables") {
-        this.pizzaPrice += 150;
-      } else if (this.toppings === "meat") {
+      } else if (this.crust === "gluten-free") {
+        this.pizzaPrice += 500;
+      } else if (this.crust === "stuffed-crust") {
+        this.pizzaPrice += 400;
+      } else if (this.crust === "thin-crust") {
+        this.pizzaPrice += 100;
+      } else if (this.crust === "cheese-crust") {
+        this.pizzaPrice += 700;
+      }
+      if (this.toppings === "onions") {
+        this.pizzaPrice += 30;
+      } else if (this.toppings === "mushrooms") {
         this.pizzaPrice += 200;
-      } else if (this.toppings === "spicy_boerewors") {
-        this.pizzaPrice += 200;
+      } else if (this.toppings === "broccoli") {
+        this.pizzaPrice += 100;
+      } else if (this.toppings === "tuna") {
+        this.pizzaPrice += 80;
+      } else if (this.toppings === "potato") {
+        this.pizzaPrice += 70;
       } else if (this.toppings === "pepperoni") {
-        this.pizzaPrice += 200;
+        this.pizzaPrice += 130;
+      }else if (this.toppings === "bacon") {
+        this.pizzaPrice += 80;
+      }else if (this.toppings === "beef") {
+        this.pizzaPrice += 50;
       }
     }
     finalCost() {
@@ -49,13 +55,7 @@ $(document).ready(function() {
       }
       return cartTotalPrice;
     }
-  }
-    class Address {
-    constructor(address) {
-      this.address = address;
-      this.deliveryAddress = (address);
-    }
-  }
+}
 
     $(".btn.check-out").click(function() {
     });
@@ -83,6 +83,6 @@ $(document).ready(function() {
       event.preventDefault();
       var address = $("input#location").val();
       var newAddress = new Address(address);
-      $("#delivery-option").text("Your pizza will be delivered to: " + newAddress.deliveryAddress);
+      $("#delivery-option").text("Your pizza will arrive soon at: " + newAddress.deliveryAddress);
     });
   });
