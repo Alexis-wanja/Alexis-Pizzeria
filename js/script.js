@@ -1,84 +1,88 @@
-// Capture form data
-$(document).ready(function () {
-    $("form#pizzacreation").submit(function (event) {
-      event.preventDefault();
+$(document).ready(function() {
+    $("#order-details").hide();
+    $("#deliver").hide();
 
-      let size, crust, toppings, count;
-      size = $("#pizzaSize :selected");
-      crust = $("#pizzaCrust :selected");
-      toppings = $("#pizzaToppings :checked");
-      count = parseInt($("#pizzaToppings :checked").val());
-
-      let pizzaOrder = new PizzaOrder(size, crust, toppings, count);
-      addToCart(pizzaOrder);
-    
-    // Display checkout button after placing order
-    $("#checkoutBtn").click(function() {
-      var delivery = $("#delivery :checked").val();
-      var location = $("#deliveryLocation").val()
-      var fullCharge = parseInt($("#total-charge").val());
-
-      if(delivery === "deliver") {
-        alert ("Thank you for buying your Palacina Pizza. Your total charge is"+(fullCharge +500)+" Your delivery is on the way to "+ location);
-      }else {
-        alert("Thank you for buying your Palacina Pizza. Your total charge is "+fullCharge);
+    var totalPriceArray = [];
+    class Order {
+    constructor(size, crust, toppings, amount) {
+      this.size = size;
+      this.crust = crust;
+      this.toppings = toppings;
+      this.pizzaPrice = 0;
+      this.amount = amount;
+    }
+    pizzaCost() {
+      if (this.size === "small-pizza") {
+        this.pizzaPrice += 300;
+      } else if (this.size === "medium-pizza") {
+        this.pizzaPrice += 500;
+      } else if (this.size === "large-pizza") {
+        this.pizzaPrice += 1000;
       }
-    });
+      if (this.crust === "thick-crust") {
+        this.pizzaPrice += 200;
+      } else if (this.crust === "cheese-filled-crust") {
+        this.pizzaPrice += 250;
+      } else if (this.crust === "crispy-crust") {
+        this.pizzaPrice += 100;
+      } else if (this.crust === "stuffed-crust") {
+        this.pizzaPrice += 150;
+      } else if (this.crust === "thin-crust") {
+        this.pizzaPrice += 150;
+      }
+      if (this.toppings === "chicken") {
+        this.pizzaPrice += 300;
+      } else if (this.toppings === "vegetables") {
+        this.pizzaPrice += 150;
+      } else if (this.toppings === "meat") {
+        this.pizzaPrice += 200;
+      } else if (this.toppings === "spicy_boerewors") {
+        this.pizzaPrice += 200;
+      } else if (this.toppings === "pepperoni") {
+        this.pizzaPrice += 200;
+      }
+    }
+    finalCost() {
+      var cartTotalPrice = [];
+      for (var arrayElement = 0; arrayElement < totalPriceArray.length; arrayElement++) {
+        cartTotalPrice += totalPriceArray[arrayElement];
+      }
+      return cartTotalPrice;
+    }
+  }
+    class Address {
+    constructor(address) {
+      this.address = address;
+      this.deliveryAddress = (address);
+    }
+  }
 
-    // Display delivery location after clicking delivery
-    $("#pick-up").click(function() {
-      $("#deliveryLocation").hide();
+    $(".btn.check-out").click(function() {
     });
-    $("#sdeliver").click(function() {
-      $("#deliveryLocation").show();
+    $("form#menu").submit(function(event) {
+      event.preventDefault();
+      var size = $("select#size").val();
+      var crust = $("select#crust").val();
+      var toppings = $("select#toppings").val();
+      var pizzaDetails = (size + " - " + crust + " - " + toppings);
+      var newPizzaOrder = new Order(size, crust, toppings);
+      newPizzaOrder.pizzaCost();
+      totalPriceArray.push(newPizzaOrder.pizzaPrice);
+      $("#final-cost").text(newPizzaOrder.finalCost());
+      $("#pizza-details").append("<ul><li>" + pizzaDetails + "</li></ul>");
+    });
+    $("#submit-pizza").click(function() {
+      $("#deliver").toggle();
+    });
+  
+    $("#checkout-btn").click(function() {
+      $("#order-details").toggle();
+    });
+    $("form#address-form").submit(function(event) {
+      $(".address-form").toggle();
+      event.preventDefault();
+      var address = $("input#location").val();
+      var newAddress = new Address(address);
+      $("#delivery-option").text("Your pizza will be delivered to: " + newAddress.deliveryAddress);
     });
   });
-
-    // Pizza Constructor
-    function PizzaOrder(pizzaSize, pizzaCrust, pizzaToppings, pizzaCount) {
-      this.size = pizzaSize;
-      this.crust = pizzaCrust;
-      this.toppings = pizzaToppings; //this is an array
-      this.count = pizzaCount;
-  }
-
-  //create a get price prototype
-  PizzaOrder.prototype.getPrice = function () {
-    let sizePrice, crustPrice, toppingsPrice;
-    sizePrice = parseInt(this.size.val());
-    crustPrice = parseInt(this.crust.val());
-    toppingsPrice = this.toppings.map(function() {
-      return parseInt($(this).val());
-    })
-
-    let totalPriceForToppings = 0;
-    for(let i=0; i<toppingsPrice.length; i++){
-      totalPriceForToppings += toppingsPrice[i];
-    }
-
-    letPriceOfOrder = (sizePrice + crustPrice + totalPriceForToppings) * this.count;
-    return letPriceOfOrder;
-  };
-
-  // Add pizza to cart
-  function addToCart(order) {
-    let toppings = order.toppings.map(function(){
-      return this.id;
-    })
-    .get()
-    .join();
-    $("#pizzaCart tablebody").append(`<tr>
-                              <td>${order.size.html()}</td>
-                              <td>${order.crust.html()}</td>
-                              <td>${toppings}</td>
-                              <td>${order.getPrice()}</td>
-                            </tr>`);
-
-    var currentTotalCharge = parseInt($("#total-charge").html());
-    $("#total-charge").html(currentTotalCharge + order.getPrice());
-    $("#checkoutBtn").show();
-    $("#delivery").show();
-  }
-
-});
-

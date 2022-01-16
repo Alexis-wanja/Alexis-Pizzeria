@@ -28,18 +28,18 @@
                 </ul>
         </div>
       </div>
-      <div class="card orderInput">
+      <div class="order">
         <div class="row justify-content-around">
-          <form id="pizzacreation">
-            <h4>make your own pizza!</h4>
+          <form id="menu">
+            <h2>menu</h2>
               <div class="form-group row align-items-center">
 
                 <!--size-->
-              <label class="col-sm-3 col-form-label" for="Size"><strong>Size</strong></label>
-              <select id="pizzaSize" class="form-control col-sm-9">
-                <option value="300">Small @300/=</option>
-                <option value="500">Medium @500/=</option>
-                <option value="1000">Large @1000/=</option>
+              <label class="col-sm-3 col-form-label" for="size"><strong>Size</strong></label>
+              <select id="size" class="form-control col-sm-9">
+                <option value="small-pizza">small @300/=</option>
+                <option value="medium-pizza">medium @500/=</option>
+                <option value="large-pizza">large @1000/=</option>
               </select>
               <br><br>
                </div>
@@ -47,7 +47,7 @@
                <div class="form-group row align-items-center">
               <!--crust-->
               <label class="col-sm-3 col-form-label" for="pizzaCrust"><strong>Crust</strong></label>
-                <select id="Crust" class="form-control col-sm-9">
+                <select id="crust" class="form-control col-sm-9">
                     <option value="300">Crispy crust @100/=</option>
                     <option value="500">Gluten-free @500/=</option>
                     <option value="400">Stuffed crust @400/=</option>
@@ -57,8 +57,8 @@
               <br><br><br><br>
 
               <!--toppings-->
-              <fieldset id="pizzaToppings" class="form-group" form="pizzaToppings">
-                <legend class=""><h5><strong>Toppings</strong></h5></legend>
+              <form id="toppings" class="form-group" for="toppings">
+                <legend class="col-form-label col-sm-3"><strong>Toppings</strong></legend>
                 <div class="Toppings">
                   <div class="">
                     <input class="form-check-input" id="onions" type="checkbox" value="30"/>
@@ -98,59 +98,29 @@
                               </div>
                   </div>
                 </div>
-              </fieldset>
+              </form>
             </div>
           </form>
         </div><br>
-        <!--pizza count-->
-        <div id="pizzaCount" class="form-group">
+
+        <div id="amount" input type="number" class="form-group">
           <label class="col-sm-3" for="pizzaCount"><strong><h4>Number of Pizzas</h4></strong></label>
           <input class="form-control col-sm-20" type="number" min="1">
           <div class="form-group mr-n3"><br>
-            <button class="btn btn-outline-success form-control" type="submit">Order Now!</button>
-            <br>
+        <button type="submit" class="order-button btn" id="submit-pizza">Order Here</button>
           </div>
 
-          <!--basket-->
-          <div id="pizzaCart" class="col-md-20">
-            <h4>Basket</h4>
-            <table class="table table-hover">
-                <tr>
-                  <th>Size</th>
-                  <th>Crust</th>
-                  <th>Toppings</th>
-                  <th>Total-charge</th>
-                </tr>
-              <tablebody></tablebody>
-            </table>
-          </hr>
-          <p>Total amount is <span id="total-charge">0</span>/=</p>
-
-            <!--delivery-->
-            <form id="delivery">
-              <p><strong>Would you want a delivery for Ksh 200?</strong></p>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" name="delivery" type="radio" id="yes" value="YES" />
-                <label class="form-check-label" for="YES">
-                  YES
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" name="delivery" type="radio" id="no" value="NO" />
-                <label class="form-check-label" for="deliver">
-                  NO
-                </label>
-              </div><br>
-              <input class="form-control" id="deliveryLocation" type="text" placeholder="Location..." />
-            </form>
-            <br>
-            <button id="checkoutBtn" class="btn btn-outline-success form-control">Checkout</button>
-          </div>
-          <br><br>
-      </div>
-    </div>
-    <br><br>
-    </div>
+          <div class="col-xs-4" id="order">
+            <h5>Price: Ksh <span id="final-cost"></span></h5><br>
+            <div id="deliver" class="deliver">
+              <p><strong>Would you want a delivery for 200/=?</strong><p>
+              <form id="address-form">
+                <div class="col-xs-6">
+                  <label for="first-name"></label>
+                  <input id="location" type="text" size="40" placeholder="Input location" required />
+                  <button class="btn btn-dark complete" type="submit">Checkout</button>
+                  <h3><span id="delivery-option"></span></h3>
+                </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/script.js"></script>
